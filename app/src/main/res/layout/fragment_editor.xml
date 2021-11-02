@@ -23,5 +23,6 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_editor" />
+    <include layout="@layout/content_editor"
+        android:id="@+id/contentEditorInclude"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

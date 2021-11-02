@@ -6,9 +6,9 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.lambostudio.lovelynotes.utilities.SampleData
-import junit.framework.TestCase
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -51,15 +51,36 @@ class AppDatabaseTest {
 
     @Test
     @Throws(Exception::class)
-    fun compareString() {
+    fun whenGetNotesByIdIsCalledThenCorrectDataIsReturned() {
         mDao.insertALLNotes(SampleData.getNotes())
-        val original  =SampleData.getNotes()[1]
-        val fromDb = mDao.getNoteByID(1)
+        val original = SampleData.getNotes()[0]
+        val fromDb = mDao.getNoteById(1)
         Log.i(TAG, "createAndRetrieveNote= $fromDb")
 
         assertEquals(fromDb.text, original.text)
-        assertEquals(1,fromDb.id)
+        assertEquals(1, fromDb.id)
     }
 
+    @Test
+    @Throws(Exception::class)
+    fun whenDeleteNoteByIdIsInvokedThenNoteIsRemoveItFromDB() {
+        mDao.insertALLNotes(SampleData.getNotes())
+        mDao.deleteNote(mDao.getNoteById(1))
+        val fromDb = mDao.getNoteById(1)
+        val notesFromDb = mDao.getCount()
+        assertEquals(2, notesFromDb)
+        assertNull(fromDb)
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun whenDeleteAllNotesIsInvokedThenAllNotesAreRemovedFromDB() {
+        mDao.insertALLNotes(SampleData.getNotes())
+        mDao.deleteAll()
+        val fromDb = mDao.getNoteById(1)
+        val notesFromDb = mDao.getCount()
+        assertEquals(0, notesFromDb)
+        assertNull(fromDb)
+    }
 
 }

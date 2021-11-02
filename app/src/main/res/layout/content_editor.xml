@@ -11,9 +11,8 @@
     <EditText
         android:id="@+id/note_text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:hint="@string/enter_note"
-        android:inputType="textMultiLine|textCapSentences"
-        android:text="@string/large_text" />
+        android:inputType="textMultiLine|textCapSentences" />
 </androidx.core.widget.NestedScrollView>

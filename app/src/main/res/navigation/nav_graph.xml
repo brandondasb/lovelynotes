@@ -10,16 +10,27 @@
         android:name="com.lambostudio.lovelynotes.HomeFragment"
         android:label="@string/home_fragment_label"
         tools:layout="@layout/fragment_home">
-
         <action
-            android:id="@+id/action_HomeFragment_to_SecondFragment"
+            android:id="@+id/action_HomeFragment_to_EditorFragment"
+            app:destination="@id/EditorFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_EditorFragment2"
             app:destination="@id/EditorFragment" />
     </fragment>
     <fragment
         android:id="@+id/EditorFragment"
         android:name="com.lambostudio.lovelynotes.EditorFragment"
-        android:label="@string/second_fragment_label"
+        android:label="{Edit note}"
         tools:layout="@layout/fragment_editor">
+        <argument
+            android:name="modelId"
+            app:argType="string" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="Edit note"
+            app:argType="string" />
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"

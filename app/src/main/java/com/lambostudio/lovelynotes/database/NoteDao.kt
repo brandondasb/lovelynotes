@@ -19,7 +19,7 @@ interface NoteDao {
     when we need to expose data to the presenting layer of the application **/
 
     @Query("SELECT * FROM  NOTES WHERE id= :id")
-    fun getNoteByID(id: Int): NoteEntity
+    fun getNoteById(id: Int): NoteEntity
 
     @Query("SELECT * FROM  NOTES ORDER BY date DESC")
     fun getAll(): LiveData<List<NoteEntity>>
@@ -29,6 +29,5 @@ interface NoteDao {
 
     @Query("SELECT COUNT(*) FROM notes")
     fun getCount(): Int
-
 
 }

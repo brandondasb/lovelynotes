@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">lovely notes</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_add_sample_data">Add sample data</string>
+    <string name="action_delete_all">Delete all notes</string>
     <!-- Strings used for fragments for navigation -->
     <string name="home_fragment_label">lovely notes</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -23,4 +24,5 @@
         But why are you still reading this? 1 eye open when I am sleepinggggggggg.
     </string>
     <string name="enter_note">Enter note</string>
+    <string name="delete">Delete</string>
 </resources>
